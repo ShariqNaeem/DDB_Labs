@@ -1,0 +1,47 @@
+-- 28. Write a program in PL/SQL to check whether a number is prime or not using goto statement with for loop.
+
+DECLARE
+  msg  VARCHAR2(30);
+  n  number := :NUMBER;
+BEGIN
+  FOR i in 2..ROUND(SQRT(n)) LOOP
+    IF n MOD i = 0 THEN
+      msg := ' is not a prime number';
+      GOTO when_prime;
+    END IF;
+  END LOOP;
+
+  msg := ' is a prime number';
+ 
+  <<when_prime>>
+  DBMS_OUTPUT.PUT_LINE(TO_CHAR(n) || msg);
+END;
+/
+
+
+
+
+-- 27. Write a program in PL/SQL to print the prime numbers between 1 to 50.
+
+DECLARE 
+i number;
+j number;
+
+BEGIN
+i:=2;
+Loop
+ j:=2;
+ 
+ loop
+  EXIT when( (MOD(i,j)=0) or (i=j) );
+  j:=j+1;
+ END loop;
+
+ IF (j=i) then
+  dbms_output.put_line(i);
+ END IF;
+ i:= i+1;
+ EXIT when i=50;
+END Loop;
+
+END;

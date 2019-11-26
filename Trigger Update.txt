@@ -1,0 +1,15 @@
+/*
+CREATE OR REPLACE TRIGGER myTrigger
+--before
+after
+UPDATE
+ON EMP
+for each row
+*/
+DECLARE
+
+BEGIN
+ update EMP set SAL=5500 where EMPNO=7499;
+ --dbms_output.put_line('mera trigger chal gyaa'); 
+dbms_output.put_line(' command chal gyaa'); 
+END;

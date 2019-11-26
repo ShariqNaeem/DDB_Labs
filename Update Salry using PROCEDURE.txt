@@ -1,0 +1,26 @@
+-- 2. Write a PL/SQL procedure to calculate the incentive on a target achieved and display the message either the record updated or not.
+
+DECLARE
+
+PROCEDURE updateEmployee(
+ e_bonus NUMBER,
+ e_salary NUMBER,
+ e_id NUMBER
+) IS
+ updated varchar2(3) := 'No';
+
+BEGIN
+if e_salary > 0 then
+ update EMP
+ set SAL = e_salary + e_bonus
+ where EMPNO = e_id;
+
+ updated:= 'Yes';
+end if;
+ dbms_output.put_line('Updation: ' || updated ); 
+END updateEmployee;
+
+BEGIN
+     updateEmployee(226,2975,7566);
+END;
+-- e_id=7566 salary=2975

@@ -1,0 +1,28 @@
+/*
+Create Table Cleaner(
+cN0 varchar2(5),
+cName varchar2(20),
+cSalary number(6,2),
+dNo varchar2(5)
+);
+*/
+/*
+Create TRIGGER MinusTrigger
+BEFORE
+INSERT
+on Cleaner
+FOR EACH ROW
+when (new.cSalary<0)
+
+DECLARE
+BEGIN
+dbms_output.put_line('SALARY IS IN MINUS.');
+END;
+*/
+
+
+DECLARE
+
+BEGIN
+ Insert into Cleaner (cN0, cName, cSalary,dNo) values ('1','Shariq',-5000,'56');
+END;

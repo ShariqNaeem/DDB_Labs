@@ -1,0 +1,21 @@
+DECLARE
+ c_id course.id%type;
+ c_name course.name%type;
+ c_cost course.cost%type;
+ 
+ CURSOR course_cursor IS
+  SELECT id,name,cost from course;
+
+
+BEGIN
+ OPEN course_cursor;
+  dbms_output.put_line('ID ' || ' ' || 'NAME' || ' ' || 'COST'); 
+ LOOP
+  FETCH course_cursor into c_id,c_name,c_cost;
+  EXIT WHEN course_cursor%notfound;
+  dbms_output.put_line(c_id || ' ' || c_name || ' ' || c_cost); 
+ End LOOP;
+
+ CLOSE course_cursor;
+
+END;

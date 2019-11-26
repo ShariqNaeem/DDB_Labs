@@ -1,0 +1,13 @@
+-- 12. Write a PL/SQL program to check whether a given number is positive, negative or zero.
+DECLARE
+ marks number;
+BEGIN
+ marks:= :x;
+if marks > 0 then
+    dbms_output.Put_line('Positive Number');
+elsif marks < 0 then
+dbms_output.Put_line('Negative Number');
+elsif marks = 0  then  
+dbms_output.Put_line('ZERO');
+end if;
+END;

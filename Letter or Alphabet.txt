@@ -1,0 +1,12 @@
+-- 12. Write a PL/SQL program to check whether a given number is positive, negative or zero.
+DECLARE
+ ctr CHAR(1) := :x;
+BEGIN
+ if (ctr >= 'A' and ctr <= 'Z') or (ctr >= 'a' and ctr <= 'z') then
+   dbms_output.Put_line ('The given character is a LETTER');
+ elsif ctr >= '0' and ctr<= '9' then
+   dbms_output.Put_line ('The given character is a NUMBER');
+ else
+   dbms_output.Put_line ('The given character is not a LETTER nor NUMBER');
+end if;
+END;

@@ -1,0 +1,13 @@
+-- 25. Write a program in PL/SQL to show the value of a same variable declared as local and global.
+
+<<main_label>>
+DECLARE
+  n NUMBER := 6;
+BEGIN
+  FOR n IN 1..4 LOOP
+    DBMS_OUTPUT.PUT_LINE (
+      'When local the value: ' || TO_CHAR(n) || ', but the value as global: ' ||
+      TO_CHAR(main_label.n)  
+    );
+  END LOOP;
+END main_label;

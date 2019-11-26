@@ -1,0 +1,10 @@
+-- 23. Write a program in PL/SQL to print 1st n numbers.
+
+DECLARE
+n number:= :Value;
+BEGIN
+for i in 1..n loop
+DBMS_OUTPUT.PUT_LINE (i || ' ');
+end loop;
+
+END;

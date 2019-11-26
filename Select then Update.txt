@@ -1,0 +1,18 @@
+-- 19. Write a program in PL/SQL to update the salary of a specifc employee by 8% if the salary exceeds the mid range of the salary against this job and update up to mid range if the salary is less than the mid range of the salary, and display a suitable message.
+
+DECLARE
+ e_salary EMP.SAL%type;
+ new_salary EMP.SAL%type;
+
+BEGIN
+ select SAL into e_salary from EMP where EMPNO=7566;  
+ DBMS_OUTPUT.PUT_LINE('The salry of the Employee is:' || e_salary);
+
+ new_salary:= e_salary+(0.08*e_salary);
+ DBMS_OUTPUT.PUT_LINE('The new salary of the Employee is:' ||new_salary);
+
+ update EMP set SAL=new_salary where EMPNO=7566;
+
+-- select SAL from EMP where EMPNO=7566;  
+
+END;

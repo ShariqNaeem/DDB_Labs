@@ -1,0 +1,19 @@
+DECLARE
+ name varchar(20) := 'SHARIQ';
+ size1 number;
+ temp number;
+ reverseName varchar2(20);
+
+
+BEGIN
+ size1 := LENGTH(name);
+ temp :=0;
+ reverseName:='';
+
+ for alpha IN 1..size1
+  loop
+   temp:= temp-1;
+   reverseName := reverseName || SUBSTR(name,temp,1);
+  end loop;
+ dbms_output.Put_line('The Reverse Of '|| name ||' is : ' ||reverseName);
+END;

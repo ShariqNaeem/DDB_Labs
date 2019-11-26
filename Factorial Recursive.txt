@@ -1,0 +1,23 @@
+DECLARE
+ num number;
+ fact number;
+
+FUNCTION factorial(x in number) RETURN number IS
+ z number;
+
+BEGIN
+ IF x=0 THEN
+  z:=1;
+ ELSE
+  z:= x * factorial(x-1);
+ END IF;
+    
+  RETURN z;
+END;
+
+BEGIN 
+ num:= :num;
+ fact := factorial(num);
+ dbms_output.put_line(' Factorial '|| num || ' is ' || fact); 
+
+END;

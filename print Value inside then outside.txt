@@ -1,0 +1,13 @@
+-- 17. Write a program in PL/SQL to print the value of a variable inside and outside a loop using LOOP WHEN EXIT statement.
+
+DECLARE
+ value number:= 40;
+BEGIN
+ LOOP
+  DBMS_OUTPUT.PUT_LINE ('The value of n inside the loop is:  ' || value);
+  value:= value+1;
+  EXIT when value >50;
+ END LOOP;
+  
+ DBMS_OUTPUT.PUT_LINE('The value of n outside the loop is: ' || value);
+END;

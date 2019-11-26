@@ -1,0 +1,19 @@
+-- 8. Write a PL/SQL program to display the description against a grade.
+DECLARE
+ marks number;
+BEGIN
+ marks:= :x;
+if marks >= 80 then
+ dbms_output.put_line('Grade: A+');
+elsif marks >=70 and marks < 80 then  
+ dbms_output.put_line('Grade: A');
+elsif marks >=60 and marks < 70 then  
+ dbms_output.put_line('Grade: B');
+elsif marks >=50 and marks < 60 then  
+ dbms_output.put_line('Grade: C');
+elsif marks >=40 and marks < 50 then  
+ dbms_output.put_line('Grade: D');
+else
+ dbms_output.put_line('Failed: F');
+end if;
+ END;

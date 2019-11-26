@@ -1,0 +1,842 @@
+--------ADD TWO NO--------------
+
+Declare
+Var1 integer;
+Var2 integer;
+Var3 integer;
+Begin
+Var1:=&var1;
+Var2:=&var2;
+Var3:=var1+var2;
+Dbms_output.put_line(var3);
+End;
+
+---------PL/SQL Program for Prime Number----
+
+declare
+	n number;
+	i number;
+	flag number;
+ 
+begin
+	i:=2;
+	flag:=1;
+	n:=&n;
+ 
+	for i in 2..n/2
+	loop
+		if mod(n,i)=0
+		then
+			flag:=0;
+			exit;
+		end if;
+	end loop;
+ 
+	if flag=1
+	then
+		dbms_output.put_line('prime');
+	else
+		dbms_output.put_line('not prime');
+	end if;
+end;
+
+
+
+
+---------PL/SQL Program to Find Factorial of a Number-------
+declare
+	n number;
+	fac number:=1;
+	i number;
+ 
+begin
+	n:=&n;
+ 
+	for i in 1..n
+	loop
+		fac:=fac*i;
+	end loop;
+ 
+	dbms_output.put_line('factorial='||fac);
+end;
+
+----------PL/SQL Program to Check Number is Odd or Even--------
+
+
+declare
+	n number:=&n;
+ 
+begin
+	if mod(n,2)=0
+	then
+		dbms_output.put_line('number is even');
+	else
+		dbms_output.put_line('number is odd');
+	end if;
+end;
+
+-----------PL/SQL Program to Print Table of a Number------------
+
+declare
+	n number;
+	i number;
+ 
+begin
+	n:=&n;
+	
+	for i in 1..10
+	loop
+		dbms_output.put_line(n||' x '||i||' = '||n*i);
+	end loop;
+end;
+
+------------------PL/SQL Program for Reverse of a Number----------------
+
+declare
+	n number;
+	i number;
+	rev number:=0;
+	r number;
+ 
+begin
+	n:=&n;
+	
+	while n>0
+	loop
+		r:=mod(n,10);
+		rev:=(rev*10)+r;
+		n:=trunc(n/10);
+	end loop;
+ 
+	dbms_output.put_line('reverse is '||rev);
+ 
+end;
+
+------------PL/SQL Program for Fibonacci Series------
+
+declare
+	first number:=0;
+	second number:=1;
+	third number;
+	n number:=&n;
+	i number;
+ 
+begin
+	dbms_output.put_line('Fibonacci series is:');
+	dbms_output.put_line(first);
+	dbms_output.put_line(second);	
+ 
+	for i in 2..n
+	loop
+		third:=first+second;
+		first:=second;
+		second:=third;
+		dbms_output.put_line(third);
+	end loop;
+end;
+
+-----------PL/SQL Program to Check Number is Odd or Even
+
+declare
+	n number:=&n;
+ 
+begin
+	if mod(n,2)=0
+	then
+		dbms_output.put_line('number is even');
+	else
+		dbms_output.put_line('number is odd');
+	end if;
+end;
+
+
+PL/SQL Program to Reverse a String
+declare
+	str1 varchar2(50):='&str';
+	str2 varchar2(50);
+	len number;
+	i number;
+
+begin
+	len:=length(str1);
+	
+	for i in reverse 1..len
+	loop
+		str2:=str2 || substr(str1,i,1);
+	end loop;
+	
+	dbms_output.put_line('Reverse of String is:'||str2);
+end;
+/
+
+----------------PL/SQL Program to Reverse a String---------------
+
+declare
+	str1 varchar2(50):='&str';
+	str2 varchar2(50);
+	len number;
+	i number;
+ 
+begin
+	len:=length(str1);
+	
+	for i in reverse 1..len
+	loop
+		str2:=str2 || substr(str1,i,1);
+	end loop;
+	
+	dbms_output.put_line('Reverse of String is:'||str2);
+end;
+
+
+-----------Pl/SQL Program for Palindrome Number---
+declare
+    n number;
+    m number;
+    rev number:=0;
+    r number;
+ 
+begin
+    n:=12321;
+    m:=n;
+	
+    while n>0
+    loop
+        r:=mod(n,10);
+        rev:=(rev*10)+r;
+        n:=trunc(n/10);
+    end loop;
+    
+    if m=rev
+    then
+        dbms_output.put_line('number is palindrome');
+    else
+        dbms_output.put_line('number is not palindrome');
+    end if;
+end;
+
+
+
+-------PL/SQL Program to Swap two Numbers----
+
+
+declare
+    a number;
+    b number;
+    temp number;
+ 
+begin
+    a:=5;
+    b:=10;
+    
+    dbms_output.put_line('before swapping:');
+    dbms_output.put_line('a='||a||' b='||b);
+    
+    temp:=a;
+    a:=b;
+    b:=temp;
+    
+    dbms_output.put_line('after swapping:');
+    dbms_output.put_line('a='||a||' b='||b);
+    
+end;
+
+
+------PL/SQL Program for Armstrong Number-----
+declare
+    n number:=407;
+    s number:=0;
+    r number;
+    len number;
+    m number;
+ 
+begin
+    m:=n;
+ 
+    len:=length(to_char(n));
+    
+    while n>0
+    loop
+        r:=mod(n,10);
+        s:=s+power(r,len);
+        n:=trunc(n/10);
+    end loop;
+    
+    if m=s
+    then
+        dbms_output.put_line('armstrong number');
+    else
+        dbms_output.put_line('not armstrong number');
+    end if;
+    
+end;
+
+
+------PL/SQL Program to Find Greatest of Three Numbers-------------
+
+
+declare
+	a number:=10;
+	b number:=12;
+	c number:=5;
+begin
+	dbms_output.put_line('a='||a||' b='||b||' c='||c);
+	if a>b AND a>c
+	then
+		dbms_output.put_line('a is greatest');
+	else
+		if b>a AND b>c
+		then
+			dbms_output.put_line('b is greatest');	
+		else
+			dbms_output.put_line('c is greatest');
+		end if;
+	end if;
+end;
+----------------pattern----------
+
+
+declare
+	n number:=5;
+	i number;
+	j number;
+begin
+	for i in 1..n
+	loop
+		for j in 1..i
+		loop
+			dbms_output.put('*');
+		end loop;
+		
+		dbms_output.new_line;
+	end loop;
+end;
+
+
+
+/* SQL Commands DDL , DML , DQL */
+
+create table student_record(id int,name varchar(20),subject varchar(20)); 
+
+insert into student_record(id,name,subject) values(1,'Yousra','Computer');
+
+select * from student_record;
+
+alter table student_record add subject_code int;
+
+update student_record set subject_code=101 where id=1;
+
+truncate table student_record;
+
+drop table student_record;
+
+rename student_record to student_data;
+select * from student_data;
+
+insert into student_data(id,name,subject,subject_code) values(2,'mehwish','maths',102);
+
+delete from student_data where subject_code=102;
+
+/* Joins */
+
+select e.first_name , d.department_name from oehr_employees e join oehr_departments d on e.department_id=d.department_id order by first_name;
+
+/* pl/sql block */
+
+begin
+ dbms_output.put_line('hello world');
+end;
+
+/* print your name */
+
+declare
+msg varchar(20);
+begin
+msg:= 'yousra';
+dbms_output.put_line(msg);
+end;
+
+declare
+msg varchar(20);
+begin
+msg:= :msg;
+dbms_output.put_line(msg);
+end;
+
+/* select into in pl/sql */
+
+
+select salary from oehr_employees;
+
+
+declare 
+temp oehr_employees.salary%type;
+
+begin
+select salary into temp from oehr_employees where employee_id=100;
+dbms_output.put_line(temp);
+end;
+
+/* count and group by */
+
+select count(department_id) , department_name from oehr_departments group by department_name;
+
+select count(last_name) , first_name from oehr_employees group by first_name;
+
+select count(first_name) , last_name from oehr_employees group by last_name;
+
+select first_name from oehr_employees where first_name='Peter';
+
+select count(employee_id) , department_id from oehr_employees group by department_id;
+
+
+/* IN */
+
+select department_name from oehr_departments where department_id IN (100,30,90);
+
+
+select department_name from oehr_departments where department_id=100;
+
+
+/* if then else */
+
+declare
+n number := :n;
+
+begin
+
+if (n>0)
+then
+dbms_output.put_line('positive integer');
+else 
+dbms_output.put_line('negative integer');
+end if;
+end;
+
+/* if else if */
+
+declare
+n number := :n;
+
+begin
+
+if (n>0)
+then
+dbms_output.put_line('positive integer');
+elsif (n<0)
+then
+dbms_output.put_line('negative integer');
+
+end if;
+end;
+
+
+/* case */
+
+declare
+grade char := :grade;
+
+begin
+
+case grade
+
+when 'A' then dbms_output.put_line('Excellent');
+when 'B' then dbms_output.put_line('very good');
+when 'C' then dbms_output.put_line('good');
+when 'D' then dbms_output.put_line('fair');
+when 'F' then dbms_output.put_line('fail');
+else dbms_output.put_line('invalid input');
+
+end case;
+end;
+
+
+/* simple loop table 2 */
+
+declare
+
+n number := 2;
+i number := 1;
+
+begin
+
+loop
+dbms_output.put_line( n || 'x' || i || '=' || n*i );
+exit when i >= 10;
+i:=i+1;
+end loop;
+end;
+
+
+declare
+
+n number := 2;
+i number := 1;
+
+begin
+
+loop
+dbms_output.put_line( n || 'x' || i || '=' || n*i );
+i:=i+1;
+if ( i>=10) then exit;
+end if;
+end loop;
+end;
+
+
+/* while loop */
+
+declare 
+n number := 2;
+i number := 1;
+
+begin
+
+while i<=10
+loop
+dbms_output.put_line( n || 'x' || i || '=' || n*i );
+i:= i+1;
+end loop;
+end;
+
+/* for loop */
+
+declare 
+n number := 2;
+i number := 1;
+
+begin
+for i in 1..10
+loop
+dbms_output.put_line(n || 'x' || i || '=' || n*i);
+end loop;
+end;
+
+/* go to statement */
+
+declare 
+n number := 2;
+i number := 1;
+
+begin
+<<print>>
+dbms_output.put_line(n || 'x' || i || '=' || n*i);
+i:= i+1;
+
+if (i <=10) then
+goto print;
+end if;
+end;
+
+
+/* goto fact */
+
+
+declare 
+n number := 5;
+i number := 1;
+begin
+<<fact>>
+i := n * i ;
+n := n-1;
+if (n >= 1) then
+goto fact;
+end if;
+dbms_output.put_line(i);
+end;
+
+
+
+/* implicit cursor */
+
+declare
+temp_row number;
+
+begin
+update oehr_employees set salary='6000' where salary=5000;
+
+if sql%notfound then
+dbms_output.put_line('not updated');
+elsif sql%found then
+temp_row := sql%rowcount;
+dbms_output.put_line(temp_row);
+end if; 
+end;
+
+/* explicit cursor */
+
+declare
+
+temp_salary oehr_employees.salary%type;
+cursor mycursor is select salary from oehr_employees;
+
+begin
+open mycursor;
+loop
+fetch mycursor into temp_salary;
+exit when mycursor%notfound;
+update oehr_employees set bonus=temp_salary+2000 where salary=temp_salary;
+end loop;
+close mycursor;
+end;
+
+
+
+/* collection */
+
+/* index by table */
+
+declare
+type associative_temp is table of integer index by varchar(20);
+v1 associative_temp;
+key  varchar(20);
+
+begin
+v1('x1') := 1000;
+v1('x2') := 2000;
+v1('x3') := 3000;
+
+key := v1.first;
+while key is not null
+loop
+dbms_output.put_line(key || ' is ' || to_char(v1(key)));
+key := v1.next(key);
+end loop;
+dbms_output.put_line('count: ' || v1.count);
+end;
+
+/*  nested table */
+
+DECLARE
+type nested_temp is table of integer;
+v2 nested_temp;
+total number;
+BEGIN
+
+v2 := nested_temp(10,20,30);
+total := v2.count;
+for x in 1..total
+loop
+dbms_output.put_line('data' || ' is ' || to_char(v2(x)));
+end loop;
+END;
+
+
+/* varray */
+
+declare 
+type varray_temp is varray(10) of integer;
+v3 varray_temp;
+total number;
+
+begin
+v3 := varray_temp(1,2,3);
+total := v3.count;
+for x in 1..total
+loop
+dbms_output.put_line('data' || ' is ' || to_char(v3(x)));
+end loop;
+end;
+
+
+/* bulk collect to hold data */
+
+declare
+
+type nested_temp is table of oehr_employees.salary%type;
+v1 nested_temp;
+total number;
+
+begin
+select salary bulk collect into v1 from oehr_employees;
+total := v1.count;
+for x in 1..total
+loop
+dbms_output.put_line('salary' || 'is' || to_char(v1(x)));
+end loop;
+dbms_output.put_line(v1.count);
+end;
+
+
+/* bulk collect to sum data */
+
+declare
+
+type nested_temp is table of integer;
+v1 nested_temp;
+total number;
+var_sum number := 0;
+counter number := 0;
+
+begin
+select salary bulk collect into v1 from oehr_employees;
+
+select count(salary) into counter from oehr_employees;
+
+for x in 1..counter
+loop
+var_sum := var_sum + v1(x);
+counter := counter-1;
+end loop;
+dbms_output.put_line(var_sum);
+end;
+
+/* bulk collect with cursor */
+
+declare
+
+cursor mycursor is select salary from oehr_employees;
+type nested_temp is table of integer;
+v1 nested_temp;
+total number;
+
+begin
+open mycursor;
+
+fetch mycursor bulk collect into v1;
+total := v1.count;
+for x in 1..total
+loop
+dbms_output.put_line(to_char(v1(x)));
+end loop;
+
+close mycursor;
+end;
+
+
+
+/* cursor for loop */
+
+declare
+
+cursor mycursor is select employee_id , first_name , last_name from oehr_employees;
+
+begin
+
+for x in mycursor
+loop
+dbms_output.put_line(x.employee_id || x.first_name);
+end loop;
+end;
+
+
+/* cursor using row type */
+
+declare
+
+cursor mycursor is select salary , first_name from oehr_employees;
+
+emp_rec mycursor%rowtype;
+
+begin
+open mycursor;
+loop
+fetch mycursor into emp_rec;
+exit when mycursor%notfound;
+dbms_output.put_line('Name: ' || emp_rec.first_name || ' ' || 'salary: ' || emp_rec.salary);
+end loop;
+end;
+
+
+
+/* explicit */
+
+1. declare cursor in declare section
+2. open cursor
+3. fetch data
+4. close cursor
+
+////// Records //////
+
+// user define records
+
+
+
+DECLARE 
+   type books is record 
+      (title varchar(50), 
+      author varchar(50), 
+      subject varchar(100), 
+      book_id number); 
+   book1 books; 
+   book2 books; 
+BEGIN 
+   -- Book 1 specification 
+   book1.title  := 'C Programming'; 
+   book1.author := 'Nuha Ali ';  
+   book1.subject := 'C Programming Tutorial'; 
+   book1.book_id := 6495407;  
+   -- Book 2 specification 
+   book2.title := 'Telecom Billing'; 
+   book2.author := 'Zara Ali'; 
+   book2.subject := 'Telecom Billing Tutorial'; 
+   book2.book_id := 6495700;  
+  
+  -- Print book 1 record 
+   dbms_output.put_line('Book 1 title : '|| book1.title); 
+   dbms_output.put_line('Book 1 author : '|| book1.author); 
+   dbms_output.put_line('Book 1 subject : '|| book1.subject); 
+   dbms_output.put_line('Book 1 book_id : ' || book1.book_id); 
+   
+   -- Print book 2 record 
+   dbms_output.put_line('Book 2 title : '|| book2.title); 
+   dbms_output.put_line('Book 2 author : '|| book2.author); 
+   dbms_output.put_line('Book 2 subject : '|| book2.subject); 
+   dbms_output.put_line('Book 2 book_id : '|| book2.book_id); 
+END;
+
+
+
+
+/////// cursor based records /////
+
+
+declare
+
+cursor mycursor is
+    select department_id , employee_id , first_name from oehr_employees;
+emp_record mycursor%rowtype;
+
+begin
+
+open mycursor;
+loop
+fetch mycursor into emp_record;
+exit when mycursor%notfound;
+dbms_output.put_line(emp_record.department_id);
+end loop;
+end;
+
+
+
+
+//// table based records ////
+
+
+declare
+
+temp_rec oehr_employees%rowtype;
+
+begin
+
+select * into temp_rec from oehr_employees where employee_id=100 ;
+dbms_output.put_line(temp_rec.department_id || ' ' || temp_rec.employee_id);
+end;
+
+/* Triggers */
+
+/* insert not allowed restriction */
+
+create trigger mytrigger before insert on oehr_departments
+
+begin
+
+raise_application_error(-20010,'insert not allowed',False);
+
+end;
+
+insert into oehr_departments(department_id,department_name,manager_id,location_id) values (280,'abcd',100,200);
+
+
+
+

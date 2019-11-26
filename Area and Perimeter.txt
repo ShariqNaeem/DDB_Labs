@@ -1,0 +1,12 @@
+DECLARE 
+radius number := 5;
+pi constant number:= 3.142;
+area number;
+perimeter number;
+
+BEGIN 
+area:=pi*radius*radius;
+perimeter := 2*pi*radius;
+dbms_output.put_line(area);
+dbms_output.put_line(perimeter);
+END;

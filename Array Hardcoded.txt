@@ -1,0 +1,17 @@
+DECLARE
+ TYPE names_array IS VARRAY(5) of varchar2(10);
+ TYPE marks_array IS VARRAY(5) of INTEGER;
+
+ names names_array;
+ marks marks_array;
+
+
+BEGIN
+ names:= names_array('Hamza','Bilal','Taimoor','Shariq','Ahmed');
+ marks:= marks_array(78,65,90,80,88);
+
+ for i in 1.. names.count LOOP
+  dbms_output.put_line('NAMES: ' || names(i) || '  MARKS:' || marks(i));
+ END LOOP;
+
+END;

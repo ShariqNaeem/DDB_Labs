@@ -1,0 +1,15 @@
+-- 3. Write a PL/SQL program to check whether a number is even or odd.
+
+DECLARE
+ num number;
+
+BEGIN
+ num := :x;
+ dbms_output.put_line('Number is: ' || num); 
+if MOD(num,2)=0 then
+ dbms_output.put_line('Number is EVEN.');
+else
+ dbms_output.put_line('Number is ODD');
+end if; 
+
+END;

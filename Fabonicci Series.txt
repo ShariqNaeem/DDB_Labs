@@ -1,0 +1,15 @@
+DECLARE 
+n1 number:= 0;
+n2 number:= 1;
+ans number;
+BEGIN
+dbms_output.put_line(n1);
+dbms_output.put_line(n2);
+
+for i in 1..10 loop
+ans:= n1+n2;
+dbms_output.put_line(ans);
+n1:= n2;
+n2:= ans;
+end loop;
+END;

@@ -1,0 +1,16 @@
+-- 14. Write a PL/SQL program to convert a temperature in scale Fahrenheit to Celsius and vice versa.
+DECLARE
+ ctr CHAR(1) := :x;
+ value NUMBER:= :value;
+ temp NUMBER(3);
+BEGIN
+ if ctr = 'C' or ctr = 'c' then
+   temp:= ( (9*value)/5 ) +32;
+dbms_output.Put_line ('the Conversion of ' || value || ' Celcius to ' || temp || ' Fahrenhite');
+ elsif ctr = 'F' or ctr = 'f' then 
+   temp:= ( (value-32)*5 )/9;
+   dbms_output.Put_line ('the Conversion of ' || value || ' Fahrenhite to ' || temp || ' Celcius');
+ else
+   dbms_output.Put_line ('you put wrong Conversion.');
+end if;
+END;

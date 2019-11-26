@@ -1,0 +1,24 @@
+DECLARE
+ CURSOR c_course IS
+ select name, cost from course;
+
+ TYPE name_array IS VARRAY(5) of course.name%type;
+ TYPE cost_array IS VARRAY(5) of course.cost%type;
+
+ names name_array := name_array();
+ costs cost_array := cost_array();
+ counter integer := 0;
+
+BEGIN
+ FOR n in c_course LOOP
+  counter:= counter+1;
+  names.extend;
+  costs.extend;
+
+  names(counter) := n.name;
+  costs(counter) := n.cost;
+
+  dbms_output.put_line('NAME(' || counter || ') = ' || names(counter) || ' COST(' || counter || ') = ' || costs(counter));
+ END LOOP;
+
+END;
